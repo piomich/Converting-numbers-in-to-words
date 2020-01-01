@@ -2,7 +2,7 @@ const numbersName = {
     '1': ['jeden', 'dwa', 'trzy', 'cztery', 'pięć', 'sześć', 'siedem', 'osiem', 'dziewięć'],
     '2': ['dziesięć', 'dwadzieścia', 'trzydzieści', 'czterdzieści', 'pięćdziesiąt', 'sześćdziesiąt', 'siedemdziesiąt', 'osiemdziesiąt', 'dziewięćdziesiąt'],
     '3': ['sto', 'dwieście', 'trzysta', 'czterysta', 'pięćset', 'sześćset', 'siedemset', 'osiemset', 'dziewięćset'],
-    'child': ['dziesięć', 'jedenaście', 'dwanaście', 'trzynaście', 'czternaście', 'piętnaście', 'szesnaście', 'siedemnaście', 'osiemnaście', 'dziewiętnaście']
+    'nast': ['dziesięć', 'jedenaście', 'dwanaście', 'trzynaście', 'czternaście', 'piętnaście', 'szesnaście', 'siedemnaście', 'osiemnaście', 'dziewiętnaście']
 }
 const fattyNumber = {
     '1': [' ', ' ', ' '],
@@ -37,7 +37,7 @@ function numbersInWords(number) {
     for (let i = 0; i < number.length; i++) {
         if (number[i] > 0) {
             if (mapNumber == 2 && number[i] == 1) {
-                liczba = liczba + ' ' + numbersName.child[(parseInt(number[number.length - 1]) + parseInt(number[number.length - 2])) - 1];
+                liczba = liczba + ' ' + numbersName.nast[(parseInt(number[number.length - 1]) + parseInt(number[number.length - 2])) - 1];
                 i++
             } else {
                 liczba = liczba + ' ' + numbersName[mapNumber][number[i] - 1]
@@ -49,12 +49,12 @@ function numbersInWords(number) {
 };
 
 function whatFattyOfNumber(numbers, lengthOfEnd) {
-    let forChildNumber = numbers[numbers.length - 2] == 1;
+    let forNastNumber = numbers[numbers.length - 2] == 1;
     let whatNumber;
     if (numbers[numbers.length - 1] == 1 && numbers.length == 1) {
         whatNumber = 0
     } else if (numbers[numbers.length - 1] == 2 || numbers[numbers.length - 1] == 3 || numbers[numbers.length - 1] == 4) {
-        forChildNumber == !1 ? whatNumber = 1 : whatNumber = 2
+        forNastNumber == !1 ? whatNumber = 1 : whatNumber = 2
     } else {
         whatNumber = 2
     }
